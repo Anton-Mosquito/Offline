@@ -57,11 +57,12 @@ const mySort = (array, callBack) => {
   return array;
 };
 
-console.log(
-  mySort([2, 5, 4, 0, 1, 3], (currentElement, nextElement) => {
-    return currentElement - nextElement;
-  })
-);
+// This script doesn't work!
+// console.log(
+//   mySort([2, 5, 4, 0, 1, 3], (currentElement, nextElement) => {
+//     return currentElement - nextElement;
+//   })
+// );
 
 const myFilter = (array, callback, thisArray) => {
   let newArray = [];

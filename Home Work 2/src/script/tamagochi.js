@@ -55,7 +55,7 @@ class Tamagochi {
       }
       this.#old();
     } else {
-      this._health = 0;
+      this.kill();
       console.log("Your's pet die!");
       return;
     }

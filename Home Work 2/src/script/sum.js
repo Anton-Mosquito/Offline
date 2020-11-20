@@ -1,6 +1,6 @@
-function sum(a) {
-  let cache = (b) => sum(a + b);
-  cache.toString = () => a;
+function sum() {
+  let cache = (x) => sum(arguments[0] + x);
+  cache.toString = () => arguments[0];
   return cache;
 }
 

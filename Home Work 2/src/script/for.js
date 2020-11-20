@@ -1,16 +1,20 @@
-let array = [];
-let index = 1;
-let maxIteration = +prompt("Enter the quantity of array elements", 10);
+let index = +prompt("Enter the start value of iteration", 0);
+let maxIteration = +prompt("Enter the quantity of iteration", 10);
 
-function forLoop(i, maxIteration) {
+function forLoop(i, maxIteration, callback) {
   if (i <= maxIteration) {
-    array[i - 1] = i;
+    callback(i);
     i++;
-    forLoop(i, maxIteration);
+    forLoop(i, maxIteration, callback);
   } else {
     return;
   }
 }
 
-// forLoop(index, maxIteration);
-// console.log(array);
+let array = new Array();
+
+forLoop(index, maxIteration, function (i) {
+  array[i] = i;
+});
+
+console.log(array);

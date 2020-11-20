@@ -1,20 +1,20 @@
 function Calc() {
-  (this.value = null),
-    (this.calculate = function (num) {
+  this.value = null,
+    this.calculate = function (num) {
       this.value = num;
       return this;
-    }),
-    (this.add = function (num) {
+    },
+    this.add = function (num) {
       this.value += num;
       return this;
-    }),
-    (this.multiply = function (num) {
+    },
+    this.multiply = function (num) {
       this.value *= num;
       return this;
-    }),
-    (this.result = function () {
+    },
+    this.result = function () {
       console.log(this.value);
-    });
+    };
 }
 
 let calc = new Calc();

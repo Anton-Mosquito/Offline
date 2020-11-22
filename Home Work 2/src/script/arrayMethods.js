@@ -21,31 +21,20 @@ Array.prototype.myMap = (array, callBack, thisArray) => {
 //   Array.prototype.myMap([2, 3, 4], (elem, index) => (elem + index) * 5)
 // );
 
-Array.prototype.mySort = (array, callBack) => {
+Array.prototype.mySort = (array) => {
   for (let index = 0; index < array.length; index++) {
-    for (let jindex = 0; jindex < array.length; jindex++) {
-      if (callBack(array[jindex], array[jindex + 1]) > 0) {
-        array[index] = array[jindex + 1];
-        array[index + 1] = array[jindex];
-      } else if (callBack(array[index], array[jindex + 1]) < 0) {
+    for (let jindex = index + 1; jindex < array.length; jindex++) {
+      if (array[index] > array[jindex]) {
+        let cash = array[index];
         array[index] = array[jindex];
-        array[index + 1] = array[jindex + 1];
-      } else if (callBack(array[index], array[jindex + 1]) === 0) {
-        array[index] = array[index];
-        array[index + 1] = array[jindex + 1];
+        array[jindex] = cash;
       }
     }
-    console.log(array);
   }
   return array;
 };
 
-// This script doesn't work!
-// console.log(
-//   Array.prototype.mySort([2, 5, 4, 0, 1, 3], (currentElement, nextElement) => {
-//     return currentElement - nextElement;
-//   })
-// );
+// console.log(Array.prototype.mySort([2, 5, 4, 0, 1, 3]));
 
 Array.prototype.myFilter = (array, callback, thisArray) => {
   let jindex = 0;
@@ -69,4 +58,4 @@ Array.prototype.myFind = (array, callback, thisArray) => {
   return undefined;
 };
 
-console.log(Array.prototype.myFind([2, 3, -24, 5, -6, 7], (elem) => elem < -5));
+// console.log(Array.prototype.myFind([2, 3, -24, 5, -6, 7], (elem) => elem < -5));

@@ -2,8 +2,6 @@ class Slider {
   constructor() {
     this.slider = document.querySelector("[data-slider]");
     this.sliderItems = document.querySelector("[data-slides='wrapper']");
-    this.prev = document.querySelector("[data-slider-button='prev']");
-    this.next = document.querySelector("[data-slider-button='next']");
     this.slides = this.sliderItems.querySelectorAll('[data-slides="slide"]');
     this.slidesLength = this.slides.length;
     this.slideSize = document.querySelector(
@@ -45,19 +43,23 @@ class Slider {
 
   eventListener() {
     document.addEventListener("mousedown", (e) => {
-      this.dragStart(e);
+      const attributes = e.target.dataset.slides;
+      if (attributes === "slide") this.dragStart(e);
     });
 
     document.addEventListener("touchstart", (e) => {
-      this.dragStart(e);
+      const attributes = e.target.dataset.slides;
+      if (attributes === "slide") this.dragStart(e);
     });
 
     document.addEventListener("touchend", (e) => {
-      this.dragEnd(e);
+      const attributes = e.target.dataset.slides;
+      if (attributes === "slide") this.dragEnd(e);
     });
 
     document.addEventListener("touchmove", (e) => {
-      this.dragAction(e);
+      const attributes = e.target.dataset.slides;
+      if (attributes === "slide") this.dragAction(e);
     });
 
     document.addEventListener("transitionend", (e) => {

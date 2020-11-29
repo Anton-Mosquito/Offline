@@ -16,9 +16,8 @@ class Slider {
     this.threshold = 100;
     this.index = 0;
     this.allowShift = true;
-    this.func1 = this.dragEnd.bind(this);
-    this.func2 = this.dragAction.bind(this);
-    this.init();
+    this.func1 = this.#dragEnd.bind(this);
+    this.func2 = this.#dragAction.bind(this);
   }
 
   get firstSlideClone() {
@@ -30,51 +29,52 @@ class Slider {
   }
 
   init() {
-    this.createElement();
-    this.eventListener();
+    this.#createElement();
+    this.#eventListener();
   }
 
-  createElement() {
+  #createElement() {
     const first = this.firstSlideClone;
     const last = this.LastSlideClone;
     this.sliderItems.insertAdjacentElement("beforeend", first);
     this.sliderItems.insertAdjacentElement("afterbegin", last);
   }
 
-  eventListener() {
+  #eventListener() {
     document.addEventListener("mousedown", (e) => {
       const attributes = e.target.dataset.slides;
-      if (attributes === "slide") this.dragStart(e);
+      if (attributes === "slide") this.#dragStart(e);
     });
 
     document.addEventListener("touchstart", (e) => {
       const attributes = e.target.dataset.slides;
-      if (attributes === "slide") this.dragStart(e);
+      if (attributes === "slide") this.#dragStart(e);
     });
 
     document.addEventListener("touchend", (e) => {
       const attributes = e.target.dataset.slides;
-      if (attributes === "slide") this.dragEnd(e);
+      if (attributes === "slide") this.#dragEnd(e);
     });
 
     document.addEventListener("touchmove", (e) => {
       const attributes = e.target.dataset.slides;
-      if (attributes === "slide") this.dragAction(e);
+      if (attributes === "slide") this.#dragAction(e);
     });
 
     document.addEventListener("transitionend", (e) => {
       const attributes = e.target.dataset.slides;
-      if (attributes === "wrapper" || attributes === "slide") this.checkIndex();
+      if (attributes === "wrapper" || attributes === "slide")
+        this.#checkIndex();
     });
 
     document.addEventListener("click", (e) => {
       const attributes = e.target.dataset.sliderButton;
-      if (attributes === "next") this.shiftSlide(1);
-      if (attributes === "prev") this.shiftSlide(-1);
+      if (attributes === "next") this.#shiftSlide(1);
+      if (attributes === "prev") this.#shiftSlide(-1);
     });
   }
 
-  dragStart(e) {
+  #dragStart(e) {
     e.preventDefault();
     this.posInitial = this.sliderItems.offsetLeft;
     if (e.type === "touchstart") {
@@ -86,12 +86,12 @@ class Slider {
     }
   }
 
-  dragEnd(e) {
+  #dragEnd(e) {
     this.posFinal = this.sliderItems.offsetLeft;
     if (this.posFinal - this.posInitial < -this.threshold) {
-      this.shiftSlide(1, "drag");
+      this.#shiftSlide(1, "drag");
     } else if (this.posFinal - this.posInitial > this.threshold) {
-      this.shiftSlide(-1, "drag");
+      this.#shiftSlide(-1, "drag");
     } else {
       this.sliderItems.style.left = `${this.posInitial}px`;
     }
@@ -99,7 +99,7 @@ class Slider {
     document.removeEventListener("mousemove", this.func2);
   }
 
-  dragAction(e) {
+  #dragAction(e) {
     e = e || window.event;
     if (e.type === "touchmove") {
       this.positionX2 = this.positionX1 - e.touches[0].clientX;
@@ -112,7 +112,7 @@ class Slider {
       this.sliderItems.offsetLeft - this.positionX2 + "px";
   }
 
-  shiftSlide(dir, action) {
+  #shiftSlide(dir, action) {
     this.sliderItems.classList.add("shifting");
     if (this.allowShift) {
       if (!action) {
@@ -130,7 +130,7 @@ class Slider {
     this.allowShift = false;
   }
 
-  checkIndex() {
+  #checkIndex() {
     this.sliderItems.classList.remove("shifting");
 
     if (this.index === -1) {
@@ -149,3 +149,4 @@ class Slider {
 }
 
 const ex = new Slider();
+ex.init();

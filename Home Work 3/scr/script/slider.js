@@ -7,8 +7,6 @@ class Slider {
     this.slideSize = document.querySelector(
       '[data-slides="slide"]'
     ).offsetWidth;
-    this.cloneFirstSlideItemsNode = null;
-    this.cloneLastSlideItemsNode = null;
     this.positionX1 = 0;
     this.positionX2 = 0;
     this.posInitial = null;

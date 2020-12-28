@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+:focus,
+:active {
+    outline: none;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+nav,
+header,
+footer,
+aside {
+    display: block;
+}
+
+html,
+body {
+    /* height: 100%; */
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+    font-family: inherit;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: 400;
+}
+
+.setting__form {
+    width: 50%;
+    margin: 5% auto;
+    font-family: 'Poppins', sans-serif;
+    background: #FFFFFF;
+    box-shadow: 0px 20px 40px rgba(149, 149, 201, 0.4);
+    border-radius: 10px;
+    display: flex;
+    font-size: 1.8rem;
+}
+
+.setting__form .setting__form-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+    box-shadow: 0px 20px 40px rgba(149, 149, 201, 0.4);
+    border-radius: 10px;
+}
+
+.setting__form .setting__form-row .setting__form-row-search{
+    flex: 0 1 50%;
+    text-align: center;
+    line-height: 40px;
+    color: #000;
+}
+
+.setting__form .setting__form-row .setting__form-row-data {
+    height: 100%;
+    flex: 0 1 50%;
+    background: #FFFFFF;
+    box-shadow: 0px 20px 40px rgba(149, 149, 201, 0.2);
+}
+
+.wrapper {
+    position: relative;
+    width: 80%;
+    height: 500px;
+    margin:  2% auto;
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(3,3,139,1) 35%, rgba(0,212,255,1) 100%);
+    overflow: hidden;
+}
+
+.move-item {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.move-item p {
+    padding: 10px;
+    display: inline-block;
+    font-size: 2rem;
+    background-color: #000;
+    color: #fff;
+    border-radius: 25px;
+    pointer-events: none;
+}
+
+.move-item button {
+    display: inline-block;
+    padding: 10px;
+    font-size: 1.6rem;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.activeElement{
+    z-index: 500;
+}
+
+.move-item button.show {
+    opacity: 1;
+}

@@ -55,8 +55,6 @@ class DragAndDrop {
     const getYCoords = () => {
       if (coords > containerY + Number(getDigitPropertiesHeight)) {
         coords = containerY + Number(getDigitPropertiesHeight);
-        console.log(getDigitPropertiesHeight);
-        console.log(coords);
       }
       if (coords < containerY) {
         coords = containerY;
@@ -72,7 +70,7 @@ class DragAndDrop {
         returnValue = getYCoords();
         break;
     }
-    console.log(returnValue);
+
     return returnValue;
   }
 
@@ -81,6 +79,7 @@ class DragAndDrop {
   }
 
   startMove(element, event) {
+    event.preventDefault();
     element.classList.add("activeElement");
     element.dataset.help = "active";
 
@@ -101,7 +100,6 @@ class DragAndDrop {
 
   eventListenet() {
     document.addEventListener("mousedown", (e) => {
-      e.preventDefault();
       const element = e.target;
       const attributes = e.target.dataset.drag;
       if (attributes !== "item") return;

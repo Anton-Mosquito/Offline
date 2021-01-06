@@ -7,18 +7,18 @@ function isPrime(num) {
     if (num % i === 0) return false;
   return true;
 }
-// console.log(isPrime(0)); // false
-// console.log(isPrime(1)); // false
-// console.log(isPrime(17)); // true
-// console.log(isPrime(10000000000000)); // false
+console.log(isPrime(0), "expected false"); // false
+console.log(isPrime(1), "expected false"); // false
+console.log(isPrime(17), "expected true"); // true
+console.log(isPrime(10000000000000), "expected false"); // false
 
 // factorial - Returns a number that is the factorial of the given number.
 function factorial(n) {
   return n ? n * factorial(n - 1) : 1;
 }
-// console.log(factorial(0)); // 1
-// console.log(factorial(1)); // 1
-// console.log(factorial(6)); // 720
+console.log(factorial(0), "expected 1"); // 1
+console.log(factorial(1), "expected 1"); // 1
+console.log(factorial(6), "expected 720"); // 720
 
 // fib - Returns the nth Fibonacci number.
 function fib() {
@@ -28,10 +28,10 @@ function fib() {
     return fib(arguments[0] - 1) + fib(arguments[0] - 2);
   }
 }
-// console.log(fib(0)); // 0
-// console.log(fib(1)); // 1
-// console.log(fib(10)); // 55
-// console.log(fib(20)); // 6765
+console.log(fib(0), "expected 0"); // 0
+console.log(fib(1), "expected 1"); // 1
+console.log(fib(10), "expected 55"); // 55
+console.log(fib(20), "expected 6765"); // 6765
 
 // isSorted - Returns true or false, indicating whether the given array of numbers is sorted.
 function isSorted(array) {
@@ -40,9 +40,9 @@ function isSorted(array) {
   }
   return true;
 }
-// console.log(isSorted([])); // true
-// console.log(isSorted([-Infinity, -5, 0, 3, 9])); // true
-// console.log(isSorted([3, 9, -3, 10])); // false
+console.log(isSorted([]), "expected true"); // true
+console.log(isSorted([-Infinity, -5, 0, 3, 9]), "expected true"); // true
+console.log(isSorted([3, 9, -3, 10]), "expected false"); // false
 
 // reverse - Reverses the given string (yes, using the built in reverse function is cheating).
 function reverse(arr) {
@@ -54,8 +54,8 @@ function reverse(arr) {
 
   return newArr.join("");
 }
-// console.log(reverse("")); // ''
-// console.log(reverse("abcdef")); // 'fedcba'
+console.log(reverse(""), "expected ''"); // ''
+console.log(reverse("abcdef"), "expected fedcba"); // 'fedcba'
 
 //indexOf - Implement the indexOf function for arrays.
 function indexOf(array, value) {
@@ -70,8 +70,8 @@ function indexOf(array, value) {
   }
   return result;
 }
-// console.log(indexOf([1, 2, 3], 1)); // 0
-// console.log(indexOf([1, 2, 3], 4)); // -1
+console.log(indexOf([1, 2, 3], 1), "expected 0"); // 0
+console.log(indexOf([1, 2, 3], 4), "expected -1"); // -1
 
 // isPalindrome - Return true or false indicating whether the given string is a plaindrone (case and space insensitive).
 function isPalindrome(str) {
@@ -84,10 +84,10 @@ function isPalindrome(str) {
   str = str.replace(/\s/g, "").toLowerCase();
   return str === anotherStr ? true : false;
 }
-// console.log(isPalindrome("")); // true
-// console.log(isPalindrome("abcdcba")); // true
-// console.log(isPalindrome("abcd")); // false
-// console.log(isPalindrome("A man a plan a canal Panama")); // true
+console.log(isPalindrome(""), "expected true"); // true
+console.log(isPalindrome("abcdcba"), "expected true"); // true
+console.log(isPalindrome("abcd"), "expected false"); // false
+console.log(isPalindrome("A man a plan a canal Panama"), "expected true"); // true
 
 // missing - Takes an unsorted array of unique numbers (ie. no repeats) from 1 through some number n, and returns the missing number in the sequence (there are either no missing numbers, or exactly one missing number). Can you do it in O(N) time? Hint: There’s a clever formula you can use.
 function missing(array) {
@@ -114,11 +114,11 @@ function missing(array) {
   }
   return missing;
 }
-// console.log(missing([])); // undefined
-// console.log(missing([1, 4, 3])); // 2
-// console.log(missing([2, 3, 4])); // 1
-// console.log(missing([5, 1, 4, 2])); // 3
-// console.log(missing([1, 2, 3, 4])); // undefined
+console.log(missing([]), "expected undefined"); // undefined
+console.log(missing([1, 4, 3]), "expected 2"); // 2
+console.log(missing([2, 3, 4]), "expected 1"); // 1
+console.log(missing([5, 1, 4, 2]), "expected 3"); // 3
+console.log(missing([1, 2, 3, 4]), "expected undefined"); // undefined
 
 // 9; // isBalanced - Takes a string and returns true or false indicating whether its curly braces are balanced.
 function isBalanced(string) {
@@ -148,9 +148,9 @@ function isBalanced(string) {
   }
   return result;
 }
-// console.log(isBalanced("}{")); // false
-// console.log(isBalanced("{{}")); // false
-// console.log(isBalanced("{}{}")); // false
-// console.log(isBalanced("foo { bar { baz } boo }")); // true
-// console.log(isBalanced("foo { bar { baz }")); // false
-// console.log(isBalanced("foo { bar } }")); // false
+console.log(isBalanced("}{"), "expected false"); // false
+console.log(isBalanced("{{}"), "expected false"); // false
+console.log(isBalanced("{}{}"), "expected false"); // false
+console.log(isBalanced("foo { bar { baz } boo }"), "expected true"); // true
+console.log(isBalanced("foo { bar { baz }"), "expected false"); // false
+console.log(isBalanced("foo { bar } }"), "expected false"); // false
